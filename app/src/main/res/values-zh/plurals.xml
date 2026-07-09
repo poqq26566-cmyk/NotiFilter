@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 中文没有单复数语法区分,Android的复数解析器对zh语言环境只会请求"other"分类 -->
+    <plurals name="hour">
+        <item quantity="other">%1$d 小时</item>
+    </plurals>
+    <plurals name="minute">
+        <item quantity="other">%1$d 分钟</item>
+    </plurals>
+    <plurals name="hit">
+        <item quantity="other">%1$d 次命中</item>
+    </plurals>
+</resources>
