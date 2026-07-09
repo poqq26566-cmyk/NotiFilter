@@ -1,0 +1,32 @@
+name: 中文版编译
+
+on:
+  push:
+    branches:
+      - dev
+  workflow_dispatch:  # 可以手动点按钮触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 拉取代码
+        uses: actions/checkout@v4
+
+      - name: 设置 JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: "temurin"
+          cache: "gradle"
+
+      - name: 编译 Debug APK
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+      - name: 上传 APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: NotiFilter-中文版
+          path: app/build/outputs/apk/debug/*.apk
